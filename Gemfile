@@ -8,9 +8,10 @@ gem 'bootstrap-sass'
 
 # Social
 gem 'omniauth-twitter'
-gem 'omniauth-facebook'
-gem "omniauth-google-oauth2"
-gem 'omniauth-linkedin-oauth2'
+gem 'omniauth-hipchat'
+#gem 'omniauth-facebook'
+#gem "omniauth-google-oauth2"
+#gem 'omniauth-linkedin-oauth2'
 
 group :development do
   gem 'sqlite3'
