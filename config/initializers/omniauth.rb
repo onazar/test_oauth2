@@ -1,7 +1,7 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :twitter, "vSapJky5iuX6RRU8Kn08eV5MF", "IkJ87aYqFIlrmL5GDSUBdvEFnLujA5a8BAHWQrPpITtnysOEtP" #ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
 
-  provider :hipchat, "vSapJky5iuX6RRU8Kn08eV5MF", "IkJ87aYqFIlrmL5GDSUBdvEFnLujA5a8BAHWQrPpITtnysOEtP", scope: "view_group admin_group"
+  provider :hipchat, "6faf027f-bf3e-4d08-ab5b-21efc8bb4db9", "yQcjf6mvMINi2X8Lz5s1hqP6yvHnS5z5g0brqgjq", scope: "view_group admin_group"
 
   #provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'],
   #         scope: 'public_profile', info_fields: 'id,name,link'
