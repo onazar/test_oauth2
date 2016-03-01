@@ -14,6 +14,8 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   #         scope: 'r_basicprofile',
   #         fields: ['id', 'first-name', 'last-name', 'location', 'picture-url', 'public-profile-url']
 
+  OmniAuth.config.logger = Rails.logger
+
   OmniAuth.config.on_failure = Proc.new do |env|
     SessionsController.action(:auth_failure).call(env)
     # error_type = env['omniauth.error.type']
