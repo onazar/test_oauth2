@@ -6,6 +6,8 @@ gem 'thin'
 
 gem 'bootstrap-sass'
 
+gem 'rest-client'
+
 # Social
 gem 'omniauth-twitter'
 gem 'omniauth-hipchat'
