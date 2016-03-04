@@ -1,5 +1,4 @@
 class HipchatController < ApplicationController
-
 	def index
 		return capabilities_descriptor			
 	end
@@ -7,6 +6,7 @@ class HipchatController < ApplicationController
 	private
 		def capabilities_descriptor
 			capabilities = { 
+        "apiVersion" => "1:1",
 				"name" => "Onazar Hipchat Add-On",
 				"description"=> "Onazar Hipchat integration",
 				"key"=> "onazar.hipchat.addon",
@@ -24,19 +24,21 @@ class HipchatController < ApplicationController
 			  	} , 
 			    "hipchatApiConsumer" => {
 			      "scopes" => [
-			        "send_notification",
+			        "send_notification", 
+              "view_room"
 			      ],
 			      "fromName" => "onazar"
 			    },
 			    "installable" => {
-			    	"installedUrl" => "#{ENV['DOMAIN']}/sessions/new",
-			    	"uninstalledUrl" => "#{ENV['DOMAIN']}/sessions/remove",
+			    	"installedUrl" => "#{ENV['DOMAIN']}/hipchat_configs/installed",
+			    	"uninstalledUrl" => "#{ENV['DOMAIN']}/hipchat_configs/remove",
 			    	"allowRoom" => true,
 			    	"allowGlobal" => false,
-			    	"callbackUrl" => "#{ENV['DOMAIN']}/sessions/store"
-			    }
+			    	"callbackUrl" => "#{ENV['DOMAIN']}/hipchat_configs/store"
+			    },
 			  }
 			}
+      Rails.logger.info("-------------capabilities.to_json-----> #{capabilities.to_json}")
 			render :json => capabilities.to_json
 		end
 end

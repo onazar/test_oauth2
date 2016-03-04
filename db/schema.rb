@@ -13,19 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20150326143007) do
 
-  create_table "users", force: :cascade do |t|
-    t.string   "provider",   null: false
-    t.string   "uid",        null: false
-    t.string   "name"
-    t.string   "location"
-    t.string   "image_url"
-    t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "hipchat_configs", force: :cascade do |t|
+    t.string   "room_id",      null: false
+    t.string   "token"
+    t.string   "oauth_id"
+    t.string   "oauth_secret"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
-  add_index "users", ["provider"], name: "index_users_on_provider"
-  add_index "users", ["uid"], name: "index_users_on_uid"
+  add_index "hipchat_configs", ["room_id"], name: "index_hipchat_configs_on_room_id"
 
 end

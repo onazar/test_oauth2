@@ -1,0 +1,15 @@
+
+<% if @installed %>
+  <h3>Hipchat room <%= @roomId %> connected to Org1</h3>
+  <a href="https://onazar-test-team.hipchat.com/addons/onazar.hipchat.addon?room=<%= @roomId %>">
+        Disconnect HipChat Room
+  </a>
+  <br>
+  <br>
+  <%= link_to "Send test message", hipchat_configs_send_test_message_path(room_id: @roomId)%>   
+
+<% else %>
+  <a href="https://www.hipchat.com/addons/install?url=http://ec2-54-164-6-135.compute-1.amazonaws.com/hipchat">
+      Connect HipChat Room
+   </a>
+<% end %>    

@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
-
-  #delete '/logout', to: 'sessions#destroy'
-  #get '/auth/:provider/callback', to: 'sessions#create'
-  #get '/auth/failure', to: 'sessions#auth_failure'
-
   root to: 'pages#index'
 
   get '/hipchat', :controller => 'hipchat', :action => 'index'
 
-  get '/sessions/remove', :controller => 'sessions', :action => 'remove'
-  post '/sessions/store', :controller => 'sessions', :action => 'store'
+  get '/hipchat_configs/remove', :controller => 'hipchat_configs', :action => 'remove'
+  post '/hipchat_configs/store', :controller => 'hipchat_configs', :action => 'store'
+  get '/hipchat_configs/installed', :controller => 'hipchat_configs', :action => 'installed'
+  
+  get "/hipchat_configs/send_test_message" => "hipchat_configs#send_test_message"
 
 end
