@@ -3,6 +3,9 @@ class HipchatController < ApplicationController
 		return capabilities_descriptor			
 	end
 
+  def configure
+  end  
+
 	private
 		def capabilities_descriptor
 			capabilities = { 
@@ -30,12 +33,16 @@ class HipchatController < ApplicationController
 			      "fromName" => "onazar"
 			    },
 			    "installable" => {
-			    	"installedUrl" => "#{ENV['DOMAIN']}/hipchat_configs/installed",
+			    	#"installedUrl" => "#{ENV['DOMAIN']}/hipchat_configs/installed",
 			    	"uninstalledUrl" => "#{ENV['DOMAIN']}/hipchat_configs/remove",
 			    	"allowRoom" => true,
 			    	"allowGlobal" => false,
 			    	"callbackUrl" => "#{ENV['DOMAIN']}/hipchat_configs/store"
 			    },
+          "configurable" => {
+            #"url" => "https://ec2-54-163-131-8.compute-1.amazonaws.com"
+            "url" => "#{ENV['DOMAIN']}/configure.html"
+          },
 			  }
 			}
       Rails.logger.info("-------------capabilities.to_json-----> #{capabilities.to_json}")
